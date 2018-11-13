@@ -20,6 +20,8 @@ var question = {
     message: 'What radio do you want to listen to?',
     default: config.get('defaultRadio') || null,
     choices: [
+        {name: '538', value: 'http://18973.live.streamtheworld.com/RADIO538.mp3'},
+        {name: '538 Dance Department', value: 'http://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR01'},
         {name: 'SublimeFM', value: 'http://Stream.sublimefm.nl/SublimeFM_mp3'},
         {name: 'SlamFM!', value: 'http://18403.live.streamtheworld.com/SLAM_MP3_SC'},
     ],
