@@ -1,5 +1,6 @@
 {
   "name": "radio2term",
+  "description": "Plays radio in the terminal via mplayer",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,5 +8,10 @@
     "configstore": "^4.0.0",
     "inquirer": "^6.2.0",
     "shelljs": "^0.8.3"
+  },
+  "repository": "github:jacovdbosch/radio2term",
+  "bin": {
+    "radio2term": "index.js",
+    "r2t": "index.js"
   }
 }
