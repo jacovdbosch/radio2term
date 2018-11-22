@@ -26,6 +26,7 @@ var question = {
         {name: '538 Dance Department', value: 'http://playerservices.streamtheworld.com/api/livestream-redirect/TLPSTR01'},
         {name: 'SublimeFM', value: 'http://Stream.sublimefm.nl/SublimeFM_mp3'},
         {name: 'SlamFM!', value: 'http://18403.live.streamtheworld.com/SLAM_MP3_SC'},
+        {name: 'Sky Radio', value: 'http://playerservices.streamtheworld.com/api/livestream-redirect/SKYRADIO.mp3'},
     ],
 }
 
