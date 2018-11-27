@@ -1,15 +1,13 @@
 {
   "name": "radio2term",
   "description": "Plays radio in the terminal via mplayer",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "configstore": "^4.0.0",
-    "htmlparser": "^1.7.7",
-    "inquirer": "^6.2.0",
-    "shelljs": "^0.8.3"
+    "lodash": "^4.17.11",
+    "shelljs": "^0.8.3",
+    "vorpal": "^1.12.0"
   },
   "repository": "github:jacovdbosch/radio2term",
   "bin": {

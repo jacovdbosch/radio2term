@@ -7,30 +7,28 @@ if (!shell.which('mplayer')) {
 	shell.exit(1);
 }
 
-const inquirer = require('inquirer');
-const ConfigStore = require('configstore');
-const pkg = require('./package.json');
+const map = require('lodash/map');
+const filter = require('lodash/filter');
+const isEmpty = require('lodash/isEmpty');
+const first = require('lodash/first');
 const spawn = require('child_process').spawn;
+const stations = require('./stations.json');
+const vorpal = require('vorpal')();
 
-const config = new ConfigStore(pkg.name);
+vorpal.delimiter('radio 2 term').show();
+vorpal.command('listen [station...]', null, null)
+      .autocomplete(map(stations, station => station.name))
+      .action((args, cb) => {
+	      let givenStation = args.station.join(' ');
 
-const prompt = inquirer.createPromptModule();
+	      station = first(filter(stations, (station) => station.name == givenStation));
 
-const question = {
-	name: 'radio',
-	type: 'list',
-	message: 'What radio do you want to listen to?',
-	default: config.get('defaultRadio') || null,
-	choices: require('./src/htmlparser')()
-};
+	      isEmpty(station) ? cb(`Could not find ${givenStation}`) : startRadio(station);
+      });
 
-prompt(question).then(function(answer) {
-	const radio = answer.radio;
-
-	config.set('defaultRadio', radio);
-
-	const player = spawn('mplayer', [radio]);
+function startRadio(station) {
+	const player = spawn('mplayer', [station.value]);
 
 	player.stdout.pipe(process.stdout);
-});
+}
 
